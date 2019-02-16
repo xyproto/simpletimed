@@ -10,11 +10,10 @@ import (
 
 	"github.com/xyproto/crossfade"
 	"github.com/xyproto/event"
-	"github.com/xyproto/monitor"
 )
 
 // SetInitialWallpaper will set the first wallpaper, before starting the vent loop
-func (stw *Wallpaper) SetInitialWallpaper(verbose bool) error {
+func (stw *Wallpaper) SetInitialWallpaper(verbose bool, setWallpaperFunc func(string, bool) error) error {
 	e, err := stw.PrevEvent(time.Now())
 	if err != nil {
 		return err
@@ -60,7 +59,7 @@ func (stw *Wallpaper) SetInitialWallpaper(verbose bool) error {
 		if verbose {
 			fmt.Printf("Setting %s.\n", imageFilename)
 		}
-		if err := monitor.SetWallpaperVerbose(imageFilename, verbose); err != nil {
+		if err := setWallpaperFunc(imageFilename, verbose); err != nil {
 			return fmt.Errorf("Could not set wallpaper: %v\n", err)
 		}
 
@@ -121,7 +120,7 @@ func (stw *Wallpaper) SetInitialWallpaper(verbose bool) error {
 		if verbose {
 			fmt.Printf("Setting %s.\n", tFromFilename)
 		}
-		if err := monitor.SetWallpaperVerbose(tFromFilename, verbose); err != nil {
+		if err := setWallpaperFunc(tFromFilename, verbose); err != nil {
 			return fmt.Errorf("Could not set wallpaper: %v\n", err)
 		}
 
@@ -143,7 +142,7 @@ func (stw *Wallpaper) SetInitialWallpaper(verbose bool) error {
 		if verbose {
 			fmt.Printf("Setting %s.\n", tempImageFilename)
 		}
-		if err := monitor.SetWallpaperVerbose(tempImageFilename, verbose); err != nil {
+		if err := setWallpaperFunc(tempImageFilename, verbose); err != nil {
 			return fmt.Errorf("Could not set wallpaper: %v\n", err)
 		}
 
@@ -157,13 +156,13 @@ func (stw *Wallpaper) SetInitialWallpaper(verbose bool) error {
 }
 
 // EventLoop will start the event loop for this Simple Timed Wallpaper
-func (stw *Wallpaper) EventLoop(verbose bool) error {
+func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string, bool) error) error {
 
 	if verbose {
 		fmt.Println("Using the Simple Timed Wallpaper format.")
 	}
 
-	stw.SetInitialWallpaper(verbose)
+	stw.SetInitialWallpaper(verbose, setWallpaperFunc)
 
 	eventloop := event.NewLoop()
 
@@ -209,7 +208,7 @@ func (stw *Wallpaper) EventLoop(verbose bool) error {
 			if verbose {
 				fmt.Printf("Setting %s.\n", imageFilename)
 			}
-			if err := monitor.SetWallpaperVerbose(imageFilename, verbose); err != nil {
+			if err := setWallpaperFunc(imageFilename, verbose); err != nil {
 				fmt.Fprintf(os.Stderr, "Could not set wallpaper: %v\n", err)
 				return // return from anon func
 			}
@@ -292,7 +291,7 @@ func (stw *Wallpaper) EventLoop(verbose bool) error {
 			if verbose {
 				fmt.Printf("Setting %s.\n", tempImageFilename)
 			}
-			if err := monitor.SetWallpaperVerbose(tempImageFilename, verbose); err != nil {
+			if err := setWallpaperFunc(tempImageFilename, verbose); err != nil {
 				fmt.Fprintf(os.Stderr, "Could not set wallpaper: %v\n", err)
 				return // return from anon func
 			}
