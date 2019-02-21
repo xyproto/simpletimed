@@ -108,7 +108,7 @@ func (stw *Wallpaper) SetInitialWallpaper(verbose bool, setWallpaperFunc func(st
 		// Place values into variables, before enclosing it in the function below.
 		from := s.At
 		//elapsed := time.Now().Sub(s.At)
-		elapsed := event.ToToday(time.Now()).Sub(event.ToToday(s.At))
+		elapsed := mod24(event.ToToday(time.Now()).Sub(event.ToToday(s.At)))
 		window := mod24(stw.UntilNext(s.At) - elapsed) // duration until next event start, minus time elapsed
 		cooldown := window
 
@@ -149,7 +149,7 @@ func (stw *Wallpaper) SetInitialWallpaper(verbose bool, setWallpaperFunc func(st
 		t := v
 
 		now := time.Now()
-		window := t.Duration()
+		window := mod24(t.Duration())
 		progress := mod24(window - event.ToToday(t.UpTo).Sub(event.ToToday(now)))
 		ratio := float64(progress) / float64(window)
 		from := t.From
