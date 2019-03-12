@@ -1,7 +1,12 @@
 # simpletimed
 
-Package for the Simple Timed Wallpaper format.
+## The Simple Timed Wallpaper Format
 
-* [Simple Timed Wallpaper Format Spec 1.0](https://github.com/xyproto/simpletimed/blob/1.0.0/SPEC.md)
+### Version 1.0.0 of the spec
 
-Version: 1.0.2
+* [Markdown](https://github.com/xyproto/simpletimed/stw-1.0.0.md)
+* [PDF](https://github.com/xyproto/simpletimed/stw-1.0.0.pdf)
+
+## The Simple Timed Wallpaper Package
+
+The Go package can be used for parsing and running an event loop for a given Simple Timed Wallpaper file.
