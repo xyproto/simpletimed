@@ -13,7 +13,9 @@
 
 The `simpletimed` Go module can be used for parsing the file format and for running an event loop for setting the wallpaper, given a function with this signature:
 
-    func(string) error
+```go
+func(string) error
+```
 
 Where the given string is the image filename to be set.
 
