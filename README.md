@@ -1,15 +1,15 @@
 # The Simple Timed Wallpaper Format
 
-[![GoDoc](https://godoc.org/github.com/xyproto/simpletimed?status.svg)](https://godoc.org/github.com/xyproto/simpletimed)
+## Specification
 
-## The specification
-
-### 1.0.0
+### Version 1.0.0
 
 * [Markdown](https://github.com/xyproto/simpletimed/blob/master/stw-1.0.0.md)
 * [PDF](https://github.com/xyproto/simpletimed/blob/master/stw-1.0.0.pdf)
 
 ## Go module
+
+[![GoDoc](https://godoc.org/github.com/xyproto/simpletimed?status.svg)](https://godoc.org/github.com/xyproto/simpletimed)
 
 The `simpletimed` Go module can be used for parsing the file format and for running an event loop for setting the wallpaper, given a function with this signature:
 
