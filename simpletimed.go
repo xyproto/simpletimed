@@ -116,6 +116,7 @@ func (stw *Wallpaper) AddTransition(from, upto time.Time, fromFilename, toFilena
 	}
 	stw.Transitions = append(stw.Transitions, &t)
 }
+
 func ParseSTW(filename string) (*Wallpaper, error) {
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
