@@ -5,7 +5,7 @@
 ### Version 1.0.0
 
 * [Markdown](https://github.com/xyproto/simpletimed/blob/master/stw-1.0.0.md)
-* [PDF](https://github.com/xyproto/simpletimed/blob/master/stw-1.0.0.pdf)
+* [PDF](https://github.com/xyproto/simpletimed/raw/master/stw-1.0.0.pdf)
 
 ## Go module
 
