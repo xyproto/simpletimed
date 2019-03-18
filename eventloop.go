@@ -267,8 +267,8 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 		eventloop.Add(event.New(from, window, cooldown, func() {
 			if verbose {
 				fmt.Printf("Triggered static wallpaper event at %s\n", cFmt(from))
-				fmt.Println("Window:", window)
-				fmt.Println("Cooldown:", cooldown)
+				fmt.Println("Window:", dFmt(window))
+				fmt.Println("Cooldown:", dFmt(cooldown))
 				fmt.Println("Filename:", imageFilename)
 			}
 
@@ -324,9 +324,9 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 				fmt.Printf("Triggered transition event at %s (%d%% complete)\n", cFmt(from), int(ratio*100))
 				fmt.Println("Progress:", progress)
 				fmt.Println("Up to:", cFmt(upTo))
-				fmt.Println("Window:", window)
-				fmt.Println("Cooldown:", cooldown)
-				fmt.Println("Loop wait:", loopWait)
+				fmt.Println("Window:", dFmt(window))
+				fmt.Println("Cooldown:", dFmt(cooldown))
+				fmt.Println("Loop wait:", dFmt(loopWait))
 				fmt.Println("Transition type:", tType)
 				fmt.Println("From filename", tFromFilename)
 				fmt.Println("To filename", tToFilename)
