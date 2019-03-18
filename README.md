@@ -21,6 +21,6 @@ Where the given string is the image filename to be set.
 
 ## General Info
 
-* Version: 1.0.0
+* Version: 1.0.3
 * License: MIT
 * Author: Alexander F. Rødseth &lt;xyproto@archlinux.org&gt;
