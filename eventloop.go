@@ -250,7 +250,7 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 	}
 
 	if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
-		fmt.Print(err)
+		return err
 	}
 
 	eventloop := event.NewLoop()
