@@ -249,7 +249,9 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 		fmt.Println("Using the Simple Timed Wallpaper format.")
 	}
 
-	stw.SetInitialWallpaper(verbose, setWallpaperFunc)
+	if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
+		fmt.Print(err)
+	}
 
 	eventloop := event.NewLoop()
 
