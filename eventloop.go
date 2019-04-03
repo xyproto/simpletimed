@@ -4,7 +4,9 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"os/signal"
 	"path/filepath"
+	"syscall"
 	"time"
 
 	"github.com/xyproto/crossfade"
@@ -252,6 +254,22 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 	if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
 		return err
 	}
+
+	// Listen for SIGHUP or SIGUSR1, to refresh the wallpaper.
+	// Can be used after resume from sleep.
+	signals := make(chan os.Signal, 1)
+	signal.Notify(signals, syscall.SIGHUP, syscall.SIGUSR1)
+	go func() {
+		for {
+			// Wait for a signal of the type given to signal.Notify
+			sig := <-signals
+			// Refresh the wallpaper
+			fmt.Println("Received signal", sig)
+			if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
+				fmt.Fprintln(os.Stderr, "Error:", err)
+			}
+		}
+	}()
 
 	eventloop := event.NewLoop()
 
