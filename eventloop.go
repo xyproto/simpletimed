@@ -251,10 +251,6 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 		fmt.Println("Using the Simple Timed Wallpaper format.")
 	}
 
-	if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
-		return err
-	}
-
 	// Listen for SIGHUP or SIGUSR1, to refresh the wallpaper.
 	// Can be used after resume from sleep.
 	signals := make(chan os.Signal, 1)
@@ -270,6 +266,10 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 			}
 		}
 	}()
+
+	if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
+		return err
+	}
 
 	eventloop := event.NewLoop()
 
