@@ -261,9 +261,12 @@ func (stw *Wallpaper) EventLoop(verbose bool, setWallpaperFunc func(string) erro
 			sig := <-signals
 			// Refresh the wallpaper
 			fmt.Println("Received signal", sig)
-			if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
-				fmt.Fprintln(os.Stderr, "Error:", err)
-			}
+			// Launch a goroutine for setting the wallpaper
+			go func() {
+				if err := stw.SetInitialWallpaper(verbose, setWallpaperFunc); err != nil {
+					fmt.Fprintln(os.Stderr, "Error:", err)
+				}
+			}()
 		}
 	}()
 
