@@ -83,6 +83,9 @@ func (stw *Wallpaper) PrevEvent(now time.Time) (interface{}, error) {
 	minDiff := h24
 	var minEvent interface{}
 	for t, e := range events {
+		if minEvent == nil {
+			minEvent = e
+		}
 		//fmt.Printf("now is: %v (%T)\n", now, now)
 		//fmt.Printf("t is: %v (%T)\n", t, t)
 		diff := event.ToToday(now).Sub(event.ToToday(t))
