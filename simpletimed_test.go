@@ -14,3 +14,14 @@ func ExampleParseSTW() {
 	// Output:
 	// adwaita-timed
 }
+
+func ExampleParseComments() {
+	stw, err := ParseSTW("testdata/comments.stw")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(stw.Name)
+
+	// Output:
+	// comments
+}
