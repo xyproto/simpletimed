@@ -1,6 +1,11 @@
-# github.com/xyproto/crossfade v0.0.0-20190210121323-d884599bd751
-github.com/xyproto/crossfade
+# github.com/anthonynsimon/bild v0.10.1-0.20190730160404-c66fc7e29724
+github.com/anthonynsimon/bild/blend
+github.com/anthonynsimon/bild/imgio
+github.com/anthonynsimon/bild/clone
+github.com/anthonynsimon/bild/fcolor
+github.com/anthonynsimon/bild/math/f64
+github.com/anthonynsimon/bild/parallel
 # github.com/xyproto/event v3.0.0+incompatible
 github.com/xyproto/event
-# github.com/xyproto/imagelib v0.0.0-20190209194312-bbbf5649f300
-github.com/xyproto/imagelib
+# golang.org/x/image v0.0.0-20190729225735-1bd0cf576493
+golang.org/x/image/bmp

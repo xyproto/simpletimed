@@ -11,17 +11,13 @@ func ExampleParseSTW() {
 	}
 	fmt.Println(stw.Name)
 
-	// Output:
-	// adwaita-timed
-}
-
-func ExampleParseComments() {
-	stw, err := ParseSTW("testdata/comments.stw")
+	stw, err = ParseSTW("testdata/comments.stw")
 	if err != nil {
 		panic(err)
 	}
 	fmt.Println(stw.Name)
 
 	// Output:
+	// adwaita-timed
 	// comments
 }
