@@ -7,5 +7,5 @@ github.com/anthonynsimon/bild/math/f64
 github.com/anthonynsimon/bild/parallel
 # github.com/xyproto/event v0.0.0-20190731100357-a3d8ddca97ef
 github.com/xyproto/event
-# golang.org/x/image v0.0.0-20190729225735-1bd0cf576493
+# golang.org/x/image v0.0.0-20190802002840-cff245a6509b
 golang.org/x/image/bmp
