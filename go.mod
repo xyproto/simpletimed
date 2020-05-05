@@ -1,7 +1,9 @@
 module github.com/xyproto/simpletimed
 
 require (
-	github.com/anthonynsimon/bild v0.10.1-0.20190730160404-c66fc7e29724
+	github.com/anthonynsimon/bild v0.11.1
 	github.com/xyproto/event v0.0.0-20190731100357-a3d8ddca97ef
-	golang.org/x/image v0.0.0-20190802002840-cff245a6509b // indirect
+	golang.org/x/image v0.0.0-20200430140353-33d19683fad8 // indirect
 )
+
+go 1.13
