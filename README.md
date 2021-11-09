@@ -2,5 +2,4 @@
 
 Moved to https://github.com/xyproto/wallutils/pkg/simpletimed.
 
-* [Markdown](https://github.com/xyproto/wallutils/pkg/simpletimed/stw-1.0.0.md)
-* [PDF](https://github.com/xyproto/wallutils/pkg/simpletimed/stw-1.0.0.pdf)
+* [PDF](https://raw.githubusercontent.com/xyproto/wallutils/main/pkg/simpletimed/stw-1.0.0.pdf)
